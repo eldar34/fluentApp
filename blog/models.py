@@ -32,6 +32,9 @@ class Posts(models.Model):
 	def __str__(self):
 		return '{}'.format(self.title)
 
+	class Meta:
+		ordering = ['-date_pub']	
+
 class Tag(models.Model):
 	title = models.CharField(max_length = 50)
 	slug = models.SlugField(max_length = 50, unique=True)
@@ -47,4 +50,7 @@ class Tag(models.Model):
 
 	def get_absolute_url(self):
 		return reverse('tag_detail_url', kwargs={'slug': self.slug})
+
+	class Meta:
+		ordering = ['title']	
 		
