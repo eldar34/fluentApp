@@ -34,7 +34,7 @@
 <script type='text/javascript' src="{% static 'js/hoverIntent.js' %}"></script>
 <script type='text/javascript' src="{% static 'js/superfish.js' %}"></script>
 <script type='text/javascript' src="{% static 'js/orbit.min.js' %}"></script>
- <script src="{% static 'css/responsive.css' %}"></script>
+
 
 <script type="text/javascript" language="javascript">
 	$(function() {
@@ -256,7 +256,46 @@
 
 
                             <!-- Start Pagination -->
-                            <div class="spacing-20"></div><ul class="pagination"><li class='current'><a href=''>1</a></li><li><a href=''>2</a></li><li><a href=''>3</a></li><li><a href=''>4</a></li></ul>
+                            <div class="spacing-20">
+                                
+                            </div>
+                     
+                     {% if is_paginated %}
+
+                        <nav aria-label="...">
+                          <ul class="pagination">
+                            <li class="page-item {% if not pre_url %} disabled {% endif %}">
+                              <a class="page-link" href="{{ pre_url }}" tabindex="-1">Previous</a>
+                            </li>
+                            
+                            
+                            
+
+                            {% for n in page_object.paginator.page_range %}
+
+                                {% if page_object.number == n %}
+
+                                    <li class="page-item current">
+                                      <a class="page-link" href="?page={{ n }}">{{ n }}
+                                        <span class="sr-only">(current)</span></a>
+                                    </li>
+
+                                {% elif n > page_object.number|add:-3 and n < page_object.number|add:3 %}
+
+                                    <li class="page-item">
+                                        <a class="page-link" href="?page={{ n }}">{{ n }}</a>
+                                    </li>
+                                {% endif %}
+
+                            {% endfor %}
+
+                            <li class="page-item {% if not next_url %} disabled {% endif %}">
+                              <a class="page-link" href="{{ next_url }}">Next</a>
+                            </li>
+                          </ul>
+                        </nav>
+
+                        {% endif %}
                             <!-- End Pagination -->
 
                             <div class="clear"></div>
@@ -364,42 +403,7 @@
     </div>
     <!-- End Footer -->
 
-    {% if is_paginated %}
-
-                        <nav aria-label="...">
-                          <ul class="pagination">
-                            <li class="page-item {% if not pre_url %} disabled {% endif %}">
-                              <a class="page-link" href="{{ pre_url }}" tabindex="-1">Previous</a>
-                            </li>
-                            
-                            
-                            
-
-                            {% for n in page_object.paginator.page_range %}
-
-                                {% if page_object.number == n %}
-
-                                    <li class="page-item active">
-                                      <a class="page-link" href="?page={{ n }}">{{ n }}
-                                        <span class="sr-only">(current)</span></a>
-                                    </li>
-
-                                {% elif n > page_object.number|add:-3 and n < page_object.number|add:3 %}
-
-                                    <li class="page-item">
-                                        <a class="page-link" href="?page={{ n }}">{{ n }}</a>
-                                    </li>
-                                {% endif %}
-
-                            {% endfor %}
-
-                            <li class="page-item {% if not next_url %} disabled {% endif %}">
-                              <a class="page-link" href="{{ next_url }}">Next</a>
-                            </li>
-                          </ul>
-                        </nav>
-
-                        {% endif %}
+   
 
                     </div>
                 </div>
