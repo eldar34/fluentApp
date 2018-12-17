@@ -4,3 +4,8 @@
 # env file
 /.idea
 .idea/*
+
+# For Python cashe
+blog/migrations/__pycache__/
+djangosite/__pycache__/
+blog/__pycache__/
