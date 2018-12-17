@@ -1,20 +1,21 @@
 {% extends 'blog/base_blog.html' %}
 
 {% block title %}
-	First Page
+	First Page - {{ block.super }}
 {% endblock %}
 
 {% block content %}
-	<h1 class="mb-5">Posts:</h1>
+	
 	<div id='app'>
 			[[ message ]]
-		</div>
-	{% for post in page_object.object_list %}
-	
 		
-		{% include 'blog/includes/post_card_template2.html' %}
+		{% for post in page_object.object_list %}
+		
+			
+			{% include 'blog/includes/post_card_template2.html' %}
 
-	{% endfor %}
+		{% endfor %}
+	</div>
 	<script type="text/javascript">
 		var app = new Vue({
 		delimiters: ['[[', ']]'],

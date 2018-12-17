@@ -34,7 +34,7 @@
 <script type='text/javascript' src="{% static 'js/hoverIntent.js' %}"></script>
 <script type='text/javascript' src="{% static 'js/superfish.js' %}"></script>
 <script type='text/javascript' src="{% static 'js/orbit.min.js' %}"></script>
- <script src="{% static 'css/responsive.css' %}js/css3-mediaqueries.js"></script>
+ <script src="{% static 'css/responsive.css' %}"></script>
 
 <script type="text/javascript" language="javascript">
 	$(function() {
@@ -79,7 +79,7 @@
         	<div id="header-nav-container">
             
                     <a href="#">
-                    <img src="images/logo.png" id="logo" />
+                    <img src="{% static 'images/logo.png' %}" id="logo" />
                     </a>
                     
 					<!-- Navigation Menu -->
@@ -120,7 +120,7 @@
             </div>
             
             <div class="featured-image">
-                <img width="290" height="130" src="img/HighRes-290x130.jpg"  />                <div class="post-icon">
+                <img width="290" height="130" src="{% static 'img/HighRes-290x130.jpg' %}"  />                <div class="post-icon">
                     <span class="fa-stack fa-lg">
                         <i class="fa fa-circle fa-stack-2x"></i>
                         <i class="fa fa-picture-o fa-stack-1x fa-inverse"></i>                    </span>
@@ -138,7 +138,7 @@
             </div>
             
                         <div class="featured-image">
-            <img width="290" height="130" src="img/one-more-beer-290x130.png"  />                <div class="post-icon">
+            <img width="290" height="130" src="{% static 'img/one-more-beer-290x130.png' %}"  />                <div class="post-icon">
                     <span class="fa-stack fa-lg">
                         <i class="fa fa-circle fa-stack-2x"></i>
                         <i class="fa fa-play-circle-o fa-stack-1x fa-inverse"></i>                    </span>
@@ -156,7 +156,7 @@
             </div>
             
                         <div class="featured-image">
-            <img width="290" height="130" src="img/Port_Harbor1-290x130.jpg"  />                <div class="post-icon">
+            <img width="290" height="130" src="{% static 'img/Port_Harbor1-290x130.jpg' %}"  />                <div class="post-icon">
                     <span class="fa-stack fa-lg">
                         <i class="fa fa-circle fa-stack-2x"></i>
                         <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>                    </span>
@@ -174,10 +174,12 @@
             </div>
             
                         <div class="featured-image">
-            <img width="290" height="130" src="img/Timothy-J-Reynolds-2560x14401-290x130.jpg"  />                <div class="post-icon">
+            <img width="290" height="130" src="{% static 'img/Timothy-J-Reynolds-2560x14401-290x130.jpg' %}"  />                
+            <div class="post-icon">
                     <span class="fa-stack fa-lg">
                         <i class="fa fa-circle fa-stack-2x"></i>
-                        <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>                    </span>
+                        <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>                    
+                    </span>
                 </div>
             </div>
                         
@@ -192,10 +194,12 @@
             </div>
             
                         <div class="featured-image">
-            <img width="290" height="130" src="img/UFO1-290x130.jpg"  />                <div class="post-icon">
+            <img width="290" height="130" src="{% static 'img/UFO1-290x130.jpg' %}"  />               
+            <div class="post-icon">
                     <span class="fa-stack fa-lg">
                         <i class="fa fa-circle fa-stack-2x"></i>
-                        <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>                    </span>
+                        <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>                    
+                    </span>
                 </div>
             </div>
                         
@@ -210,10 +214,12 @@
             </div>
             
                         <div class="featured-image">
-            <img width="290" height="130" src="img/Diamantina-Full_Landscape-290x130.jpg"  />                <div class="post-icon">
+            <img width="290" height="130" src="{% static 'img/Diamantina-Full_Landscape-290x130.jpg' %}"  />                
+            <div class="post-icon">
                     <span class="fa-stack fa-lg">
                         <i class="fa fa-circle fa-stack-2x"></i>
-                        <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>                    </span>
+                        <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>                    
+                    </span>
                 </div>
             </div>
                        
@@ -281,7 +287,8 @@
                 <li>
                 <div class="post-image">
                 <div class="post-mask"></div>
-                <img width="70" height="70" src="img/HighRes-70x70.jpg" class="attachment-post-widget #"  />                </div>
+                <img width="70" height="70" src="{% static 'img/HighRes-70x70.jpg' %}" class="attachment-post-widget #"  />                
+            </div>
                 
                 <h6><a href="#">The Lighthouse Effect</a></h6>
                 <span>November 02, 2013</span>
@@ -292,7 +299,8 @@
                 <li>
                 <div class="post-image">
                 <div class="post-mask"></div>
-                <img width="70" height="70" src="img/one-more-beer-70x70.png" class="attachment-post-widget #"  />                </div>
+                <img width="70" height="70" src="{% static 'img/one-more-beer-70x70.png' %}" class="attachment-post-widget #"  />                
+            </div>
                 
                 <h6><a href="#">One More Beer</a></h6>
                 <span>November 02, 2013</span>
@@ -303,7 +311,8 @@
                 <li>
                 <div class="post-image">
                 <div class="post-mask"></div>
-                <img width="70" height="70" src="img/Port_Harbor1-70x70.jpg" class="attachment-post-widget #"  />                </div>
+                <img width="70" height="70" src="{% static 'img/Port_Harbor1-70x70.jpg' %}" class="attachment-post-widget #"  />                
+            </div>
                 
                 <h6><a href="#">Port Harbor</a></h6>
                 <span>November 02, 2013</span>
@@ -314,7 +323,8 @@
                 <li>
                 <div class="post-image">
                 <div class="post-mask"></div>
-                <img width="70" height="70" src="img/Timothy-J-Reynolds-2560x14401-70x70.jpg" class="attachment-post-widget #"  />                </div>
+                <img width="70" height="70" src="{% static 'img/Timothy-J-Reynolds-2560x14401-70x70.jpg' %}" class="attachment-post-widget #"  />                
+            </div>
                 
                 <h6><a href="#">Underground Volcano</a></h6>
                 <span>November 02, 2013</span>
@@ -345,7 +355,7 @@
             <!-- End Footer Copyright -->
             
             <!-- Footer Logo -->
-			<img src="images/footer-logo.png" id="footer-logo" />
+			<img src="{% static 'images/footer-logo.png' %}" id="footer-logo" />
             <!-- End Footer Logo -->
         
         <div class="clear"></div>

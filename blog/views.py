@@ -16,7 +16,7 @@ from django.db.models import Q
 
 def posts_list(request):
 	search_query = request.GET.get('search', '')
-
+	#MY_PROJECT_IMG = '{}'.format(MY_PROJECT)
 	if search_query:
 		posts = Posts.objects.filter(Q(title__icontains=search_query) | Q(body__icontains=search_query))
 	else:	
