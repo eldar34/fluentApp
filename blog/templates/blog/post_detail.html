@@ -48,11 +48,17 @@
 
 			<!-- Post Tags -->
             
-            <div class="post-tags">
+        <div class="post-tags">
             <span class="fa-stack fa-lg">
                <i class="fa fa-circle fa-stack-2x"></i>
                <i class="fa fa-tags fa-stack-1x fa-inverse"></i>
-            </span><a href="#" rel="tag">Color Schemes</a>, <a href="#" rel="tag">Gallery</a>, <a href="#" rel="tag">Images</a>, <a href="#" rel="tag">Light</a>, <a href="#" rel="tag">Post</a>, <a href="#" rel="tag">Slider</a>, <a href="#" rel="tag">Standard</a></div>
+            </span>
+            {% for tag in posts.tags.all %}
+                <a href="{{ tag.get_absolute_url }}" rel="tag">{{ tag.title }}</a>,
+                
+            {% endfor %}
+            
+        </div>
             <div class="clear"></div>            <!-- End Post Tags -->
             
             </div>
