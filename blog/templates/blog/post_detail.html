@@ -53,8 +53,11 @@
                <i class="fa fa-circle fa-stack-2x"></i>
                <i class="fa fa-tags fa-stack-1x fa-inverse"></i>
             </span>
+            
             {% for tag in posts.tags.all %}
-                <a href="{{ tag.get_absolute_url }}" rel="tag">{{ tag.title }}</a>,
+                <a href="{{ tag.get_absolute_url }}" rel="tag">{{ tag.title }}</a>&nbsp;&nbsp;
+                
+                
                 
             {% endfor %}
             
