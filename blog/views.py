@@ -53,6 +53,7 @@ def posts_list(request):
 class PostDetail(ObjectDetailMixin, View):
 	model = Posts
 	template = 'blog/post_detail.html'
+	tagCloud = Tag
 	
 
 class TagCreate(LoginRequiredMixin, ObjectCreateMixin, View):

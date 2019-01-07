@@ -7,10 +7,16 @@ from .models import *
 class ObjectDetailMixin:
 	model = None
 	template = None
+	tagCloud = None
 
 	def get(self, request, slug):
 		obj = get_object_or_404(self.model, slug__iexact = slug)
-		return render(request, self.template, context={self.model.__name__.lower(): obj, 'admin_object': obj, 'detail': True})
+		if self.tagCloud is not None:
+			tagsAll = self.tagCloud.objects.all()
+		else:
+			tagsAll = None	
+		return render(request, self.template, context={self.model.__name__.lower(): obj, 'admin_object': obj,
+		 'detail': True, 'tagCloud': tagsAll})
 
 class ObjectCreateMixin:
 	form_model = None

@@ -84,3 +84,17 @@
 
 		
 	{% endblock %}
+
+    {% block tagCloud %}
+        <div class="widget-container"><h6 class="widget-title">Tag Cloud</h6>
+            <div class="tagcloud">
+                {% for item in tagCloud %}
+                    <a href='{{ item.get_absolute_url }}' class='tag-link-12' title='1 topic' style='font-size: 8pt;'>
+                        {{ item.title }}
+                    </a>
+                {% endfor %}
+               
+            </div>
+            <div class="clear"></div>
+        </div>
+    {% endblock %} 
