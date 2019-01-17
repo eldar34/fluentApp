@@ -82,6 +82,128 @@
             </div>
             <!-- End Post Item -->
 
+<div id='app'>
+   [[ message ]]
+
+    <!-- Start comments -->
+
+    <div class="post">
+        <div class="post-margin">
+            
+        <!-- Start Related Item -->
+        <comment-component
+                v-for='comment in comments'
+                :key='comment.name'
+                :name='comment.name'
+                :photo='comment.photo'
+                :comment='comment.comment'
+                >
+                    
+        </comment-component>
+        <!-- End Related Item -->
+        
+            
+        
+        </div>
+    </div> 
+
+    <!-- Comments -->
+    <div class="comment-container">
+                
+        <h6 id="comment-header">No Comments, Be The First!</h6>
+                
+            <ul class="comment-list">
+            </ul>
+                
+                
+            <!-- Comment Form -->
+            <div class="commen-form">
+                <div id="respond" class="comment-respond">
+                    <h3 id="reply-title" class="comment-reply-title"> 
+                        <small>
+                            <a rel="nofollow" id="cancel-comment-reply-link" href="#" style="display:none;">Cancel Reply</a>
+                        </small>
+                    </h3>
+                    <form action="" method="post" @submit.prevent="submit" id="comment-form-container" class="comment-form">
+                        <p class="comment-notes">
+                            
+                        </p>                           
+                        <input type="text" v-model='username' placeholder="Enter Name" class="comment-name"  />
+                        <input type="text" name="email" placeholder="Enter Email" class="comment-email"  />
+                        <input type="text" name="url" placeholder="Enter URL" class="comment-url" />
+                        <textarea v-model='mycomment' placeholder="Enter Message Here" class="comment-text-area">
+                            
+                        </textarea>          
+                        <p class="form-allowed-tags">
+                            
+                        </p>                       
+                        <p class="form-submit">
+                            <input name="doSomething" type="submit" id="comment-submit" value="Send Comment" />
+                            <input type='hidden' name='comment_post_ID' value='49' id='comment_post_ID' />
+                            <input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+                        </p>
+                    </form>
+                </div><!-- #respond -->
+                <div class="clear"></div>
+                
+            </div>
+            <!-- End Comment Form -->
+
+        </div>
+        <!-- End Comments --> 
+</div>
+
+<script type="text/javascript">
+        const Comment = {
+            delimiters: ['[[', ']]'],
+            template: `
+            
+                <div class="related-posts">
+        
+                    <div class="post-avatar">
+                        <div class="avatar-frame"></div>
+                        <img width="70" height="70" :src="photo" class="attachment-post-widget #"  />    
+                    </div>
+                    
+                    <div class="related-posts-aligned">            
+                        <h6><a href="#">[[name]]</a></h6>
+                        <p>[[comment]]</p>
+                        <div class="clear">
+                        </div>
+                    </div>
+                    
+                    <div class="clear"></div>
+                    <hr>
+                </div>
+                
+            `,
+            props: ['photo', 'comment', 'name']
+        };
+
+        new Vue({
+            delimiters: ['[[', ']]'],
+            el: "#app",
+            data () {
+                return {
+                    message: 'Hello Vue',
+                    comments: [{name: 'Jane', photo: 'https://images.pexels.com/photos/574282/pexels-photo-574282.jpeg', comment: 'Hello Jane!'}, {name: 'John', photo: 'https://static.pexels.com/photos/37533/studio-portrait-woman-face-37533.jpeg', comment: 'Hello John!'} ],
+                    mycomment: '',
+                    username: ''
+                }
+            },
+            components: {
+                'comment-component': Comment
+            },
+            methods: {
+                submit() {
+                    this.comments.push({name: this.username, comment: this.mycomment, photo: 'https://images.pexels.com/photos/574282/pexels-photo-574282.jpeg'});
+                    this.mycomment = '';
+                    this.username = '';
+                }
+            }
+        });
+</script>
+
 		
 	{% endblock %}
 
@@ -97,4 +219,4 @@
             </div>
             <div class="clear"></div>
         </div>
-    {% endblock %} 
+    {% endblock %}
